@@ -1,8 +1,13 @@
 @import '../../theme/theme.scss';
 
+$header-height: (
+  mobile: 56px,
+  desktop: 64px,
+);
+
 :host {
   display: block;
   width: 100vw;
-  height: calc(100vw - 56px);
+  height: calc(100vw - #{map-get($header-height, mobile)});
   background-color: $primary;
 }
