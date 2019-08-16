@@ -8,9 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyOwnCustomMaterialModule } from './my-own-custom-material/my-own-custom-material.module';
 import { ResultContainerComponent } from './container/result-container/result-container.component';
 import { FormContainerComponent } from './container/form-container/form-container.component';
+import { TimeFieldComponent } from './components/time-field/time-field.component';
 
 @NgModule({
-  declarations: [AppComponent, ResultContainerComponent, FormContainerComponent],
+  declarations: [AppComponent, ResultContainerComponent, FormContainerComponent, TimeFieldComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
