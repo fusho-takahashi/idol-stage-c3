@@ -12,6 +12,7 @@ import { ResultContainerComponent } from './container/result-container/result-co
 import { FormContainerComponent } from './container/form-container/form-container.component';
 import { TimeFieldComponent } from './components/time-field/time-field.component';
 import { TimeLagFieldComponent } from './components/time-lag-field/time-lag-field.component';
+import { DrinkCourseFieldComponent } from './components/drink-course-field/drink-course-field.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TimeLagFieldComponent } from './components/time-lag-field/time-lag-fiel
     FormContainerComponent,
     TimeFieldComponent,
     TimeLagFieldComponent,
+    DrinkCourseFieldComponent,
   ],
   imports: [
     BrowserModule,
