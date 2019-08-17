@@ -1,1 +1,15 @@
-<p>drink-course-field works!</p>
+<div fxLayout="column" fxLayoutGap="8px">
+  <label class="mat-caption">ドリンクコース</label>
+  <mat-radio-group
+    fxLayout="column"
+    fxLayoutGap="12px"
+    [(ngModel)]="selectedDrinkCourse"
+  >
+    <mat-radio-button
+      *ngFor="let course of drinkCourses"
+      color="primary"
+      [value]="course.value"
+      >{{ course.label }}</mat-radio-button
+    >
+  </mat-radio-group>
+</div>
