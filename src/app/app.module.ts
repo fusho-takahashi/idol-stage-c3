@@ -34,6 +34,7 @@ import { TimePickerComponent } from './components/time-picker/time-picker.compon
     MyOwnCustomMaterialModule,
   ],
   providers: [],
+  entryComponents: [TimePickerComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
