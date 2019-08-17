@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 
 import { MyOwnCustomMaterialModule } from './my-own-custom-material/my-own-custom-material.module';
 import { ResultContainerComponent } from './container/result-container/result-container.component';
@@ -31,6 +33,8 @@ import { TimePickerComponent } from './components/time-picker/time-picker.compon
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
+    OverlayModule,
+    PortalModule,
     MyOwnCustomMaterialModule,
   ],
   providers: [],
