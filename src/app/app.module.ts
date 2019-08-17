@@ -11,6 +11,7 @@ import { MyOwnCustomMaterialModule } from './my-own-custom-material/my-own-custo
 import { ResultContainerComponent } from './container/result-container/result-container.component';
 import { FormContainerComponent } from './container/form-container/form-container.component';
 import { TimeFieldComponent } from './components/time-field/time-field.component';
+import { TimeLagFieldComponent } from './components/time-lag-field/time-lag-field.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TimeFieldComponent } from './components/time-field/time-field.component
     ResultContainerComponent,
     FormContainerComponent,
     TimeFieldComponent,
+    TimeLagFieldComponent,
   ],
   imports: [
     BrowserModule,
