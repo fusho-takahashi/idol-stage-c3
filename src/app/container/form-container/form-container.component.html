@@ -1,1 +1,28 @@
-<p>form-container works!</p>
+<div fxLayout="column" fxLayoutGap="24px">
+  <div fxLayout="column" fxLayoutGap="8px">
+    <label class="mat-caption">入退出時間</label>
+    <div gdColumns="1fr 20px 1fr" gdGap="8px" class="time-fields">
+      <app-time-field
+        formLabel="入場時間"
+        [time]="{ hour: 20, munite: 0 }"
+      ></app-time-field>
+      <mat-icon gdGridAlign="center center">remove</mat-icon>
+      <app-time-field formLabel="退場時間"></app-time-field>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="8px">
+    <label class="mat-caption">ドリンクコース</label>
+    <mat-radio-group
+      fxLayout="column"
+      fxLayoutGap="12px"
+      [(ngModel)]="selectedDrinkCourse"
+    >
+      <mat-radio-button
+        *ngFor="let course of drinkCourses"
+        color="primary"
+        [value]="course.value"
+        >{{ course.label }}</mat-radio-button
+      >
+    </mat-radio-group>
+  </div>
+</div>
