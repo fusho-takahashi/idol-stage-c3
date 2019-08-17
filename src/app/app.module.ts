@@ -13,6 +13,7 @@ import { FormContainerComponent } from './container/form-container/form-containe
 import { TimeFieldComponent } from './components/time-field/time-field.component';
 import { TimeLagFieldComponent } from './components/time-lag-field/time-lag-field.component';
 import { DrinkCourseFieldComponent } from './components/drink-course-field/drink-course-field.component';
+import { TimePickerComponent } from './components/time-picker/time-picker.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DrinkCourseFieldComponent } from './components/drink-course-field/drink
     TimeFieldComponent,
     TimeLagFieldComponent,
     DrinkCourseFieldComponent,
+    TimePickerComponent,
   ],
   imports: [
     BrowserModule,
