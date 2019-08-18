@@ -19,6 +19,7 @@ export class TimePickerService {
 
     const config = new OverlayConfig({
       positionStrategy,
+      hasBackdrop: true,
     });
 
     const overlayRef = this.overlay.create(config);

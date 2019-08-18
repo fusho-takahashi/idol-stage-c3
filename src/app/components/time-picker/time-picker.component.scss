@@ -1,0 +1,55 @@
+@import '../../theme/theme.scss';
+
+$left-and-right-padding: 16px;
+
+:host {
+  width: calc(100vw - #{$left-and-right-padding * 2});
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.header {
+  height: 120px;
+  background-color: $primary;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: {
+    top: 0;
+    bottom: 20px;
+    right: 24px;
+    left: 24px;
+  }
+}
+
+.title {
+  line-height: 1;
+}
+
+.time-divider {
+  transform: translateY(-3px);
+}
+
+.input-target {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.87);
+}
+
+.mat-display-2 {
+  margin: 0;
+  line-height: 1;
+}
+
+.number-pad-area {
+  padding: 24px;
+}
+
+.number-pad {
+  font-size: 2em;
+}
+
+.button-area {
+  height: 52px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 8px;
+  color: $primary-darker;
+}
