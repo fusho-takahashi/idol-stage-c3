@@ -1,0 +1,68 @@
+<div class="container mat-elevation-z8">
+  <div gdRows="28px 72px" class="header">
+    <div fxLayoutAlign="start end" class="title mat-caption">
+      入場時間
+    </div>
+    <div gdColumns="auto 40px">
+      <div
+        fxLayoutAlign="start end"
+        class="inputed-time mat-display-2"
+        fxLayout="row"
+        fxLayoutGap="4px"
+      >
+        <div
+          [class.input-target]="inputTarget === 'hour'"
+          (click)="changeTarget('hour')"
+        >
+          {{ hour === undefined ? 'HH' : (hour | number: '2.0') }}
+        </div>
+        <div class="time-divider">:</div>
+        <div
+          [class.input-target]="inputTarget === 'munite'"
+          (click)="changeTarget('munite')"
+        >
+          {{ munite === undefined ? 'MM' : (munite | number: '2.0') }}
+        </div>
+      </div>
+      <div fxLayoutAlign="start end">
+        <button mat-icon-button (click)="clearTime()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="number-pad-area"
+    gdColumns="repeat(3, calc((100% - 16px) / 3))"
+    gdRows="repeat(4, 64px)"
+    gdGap="8px 8px"
+  >
+    <button mat-button class="number-pad" (click)="clickNumberPad(1)">1</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(2)">2</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(3)">3</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(4)">4</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(5)">5</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(6)">6</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(7)">7</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(8)">8</button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(9)">9</button>
+    <button mat-button class="number-pad" (click)="decrement()">
+      <mat-icon>exposure_minus_1</mat-icon>
+    </button>
+    <button mat-button class="number-pad" (click)="clickNumberPad(0)">0</button>
+    <button mat-button class="number-pad">
+      <mat-icon (click)="increment()">exposure_plus_1</mat-icon>
+    </button>
+  </div>
+  <div
+    class="button-area"
+    fxLayout="row"
+    fxLayoutGap="8px"
+    fxLayoutAlign="end center"
+  >
+    <button mat-button>CANCEL</button>
+    <button mat-button [disabled]="hour === undefined || munite === undefined">
+      OK
+    </button>
+  </div>
+</div>
