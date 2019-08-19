@@ -10,11 +10,8 @@
         fxLayout="row"
         fxLayoutGap="4px"
       >
-        <div
-          [class.input-target]="inputTarget === 'hour'"
-          (click)="changeTarget('hour')"
-        >
-          {{ hour === undefined ? 'HH' : (hour | number: '2.0') }}
+        <div>
+          {{ hour | number: '2.0' }}
         </div>
         <div class="time-divider">:</div>
         <div
@@ -31,29 +28,21 @@
       </div>
     </div>
   </div>
-  <div
-    class="number-pad-area"
-    gdColumns="repeat(3, calc((100% - 16px) / 3))"
-    gdRows="repeat(4, 64px)"
-    gdGap="8px 8px"
-  >
-    <button mat-button class="number-pad" (click)="clickNumberPad(1)">1</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(2)">2</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(3)">3</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(4)">4</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(5)">5</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(6)">6</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(7)">7</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(8)">8</button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(9)">9</button>
-    <button mat-button class="number-pad" (click)="decrement()">
-      <mat-icon>exposure_minus_1</mat-icon>
-    </button>
-    <button mat-button class="number-pad" (click)="clickNumberPad(0)">0</button>
-    <button mat-button class="number-pad">
-      <mat-icon (click)="increment()">exposure_plus_1</mat-icon>
-    </button>
+
+  <div class="number-pad-area">
+    <div class="hour-picker">
+      <label class="unit-label mat-subheading-1">hour</label>
+      <div class="input-hour-area">
+        <div class="select-ampm-area"></div>
+        <div class="number-pad-area"></div>
+      </div>
+    </div>
+    <div class="minute-picker">
+      <label class="unit-label mat-subheading-1">minute</label>
+      <div class="input-minute-area"></div>
+    </div>
   </div>
+
   <div
     class="button-area"
     fxLayout="row"
