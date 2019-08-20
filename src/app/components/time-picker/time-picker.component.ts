@@ -1,11 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
 
 @Component({
   selector: 'app-time-picker',
   templateUrl: './time-picker.component.html',
   styleUrls: ['./time-picker.component.scss'],
 })
-export class TimePickerComponent implements OnInit {
+export class TimePickerComponent implements OnInit, AfterViewInit {
   selectedHour = 0;
   selectedMunite = 0;
 
@@ -18,14 +24,29 @@ export class TimePickerComponent implements OnInit {
 
   selectedAmPm: 'AM' | 'PM' = 'AM';
 
+  @ViewChild('minuteSlider', { static: true }) minuteSlider: ElementRef<
+    HTMLElement
+  >;
+
   constructor() {}
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    const convinientPixel = Math.trunc(this.selectedMunite / 5) * 192 - 104;
+    const remainderPixcel = (this.selectedMunite % 5) * 36;
+    const Adjast = this.selectedMunite % 5 === 0 ? 0 : 4;
+    this.minuteSlider.nativeElement.scrollTo(
+      convinientPixel + remainderPixcel + Adjast,
+      0,
+    );
+  }
 
   clearTime() {
     this.selectedHour = 0;
     this.selectedMunite = 0;
     this.selectedAmPm = 'AM';
+    this.minuteSlider.nativeElement.scrollTo(0, 0);
   }
 
   selectAmPm(ampm) {
