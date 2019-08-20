@@ -42,13 +42,6 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
     );
   }
 
-  clearTime() {
-    this.selectedHour = 0;
-    this.selectedMinute = 0;
-    this.selectedAmPm = 'AM';
-    this.minuteSlider.nativeElement.scrollTo(0, 0);
-  }
-
   selectAmPm(ampm) {
     if (ampm !== this.selectedAmPm) {
       this.selectedAmPm = ampm;
