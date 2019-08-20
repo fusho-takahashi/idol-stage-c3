@@ -7,7 +7,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class TimeFieldComponent implements OnInit, OnChanges {
   @Input() formLabel: string;
-  @Input() time: { hour: number; munite: number } | null;
+  @Input() time: { hour: number; minute: number } | null;
 
   inputed: boolean;
   constructor() {}

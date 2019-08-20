@@ -13,7 +13,7 @@ import {
 })
 export class TimePickerComponent implements OnInit, AfterViewInit {
   selectedHour = 0;
-  selectedMunite = 0;
+  selectedMinute = 0;
 
   hours = {
     AM: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
@@ -33,9 +33,9 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    const convinientPixel = Math.trunc(this.selectedMunite / 5) * 192 - 104;
-    const remainderPixcel = (this.selectedMunite % 5) * 36;
-    const Adjast = this.selectedMunite % 5 === 0 ? 0 : 4;
+    const convinientPixel = Math.trunc(this.selectedMinute / 5) * 192 - 104;
+    const remainderPixcel = (this.selectedMinute % 5) * 36;
+    const Adjast = this.selectedMinute % 5 === 0 ? 0 : 4;
     this.minuteSlider.nativeElement.scrollTo(
       convinientPixel + remainderPixcel + Adjast,
       0,
@@ -44,7 +44,7 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
 
   clearTime() {
     this.selectedHour = 0;
-    this.selectedMunite = 0;
+    this.selectedMinute = 0;
     this.selectedAmPm = 'AM';
     this.minuteSlider.nativeElement.scrollTo(0, 0);
   }
@@ -62,6 +62,6 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
   }
 
   selectMinute(minute: number) {
-    this.selectedMunite = minute;
+    this.selectedMinute = minute;
   }
 }

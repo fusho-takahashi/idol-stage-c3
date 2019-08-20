@@ -15,10 +15,10 @@
         </div>
         <div class="time-divider">:</div>
         <div
-          [class.input-target]="inputTarget === 'munite'"
-          (click)="changeTarget('munite')"
+          [class.input-target]="inputTarget === 'minute'"
+          (click)="changeTarget('minute')"
         >
-          {{ selectedMunite | number: '2.0' }}
+          {{ selectedMinute | number: '2.0' }}
         </div>
       </div>
       <div fxLayoutAlign="start end">
@@ -88,7 +88,7 @@
             *ngFor="let minute of minutes"
             fxLayoutAlign="center center"
             class="minute-pad"
-            [class.selected]="minute === selectedMunite"
+            [class.selected]="minute === selectedMinute"
             [class.convinient]="minute % 5 === 0"
             (click)="selectMinute(minute)"
           >
