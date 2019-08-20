@@ -11,14 +11,14 @@
         fxLayoutGap="4px"
       >
         <div>
-          {{ hour | number: '2.0' }}
+          {{ selectedHour | number: '2.0' }}
         </div>
         <div class="time-divider">:</div>
         <div
           [class.input-target]="inputTarget === 'munite'"
           (click)="changeTarget('munite')"
         >
-          {{ munite === undefined ? 'MM' : (munite | number: '2.0') }}
+          {{ selectedMunite | number: '2.0' }}
         </div>
       </div>
       <div fxLayoutAlign="start end">
@@ -29,17 +29,73 @@
     </div>
   </div>
 
-  <div class="number-pad-area">
+  <div class="input-area">
     <div class="hour-picker">
       <label class="unit-label mat-subheading-1">hour</label>
       <div class="input-hour-area">
-        <div class="select-ampm-area"></div>
-        <div class="number-pad-area"></div>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxLayoutGap="16px"
+          class="select-ampm-area"
+        >
+          <div
+            fxLayoutAlign="center center"
+            class="select-ampm"
+            [class.selected]="selectedAmPm === 'AM'"
+            (click)="selectAmPm('AM')"
+          >
+            AM
+          </div>
+          <div
+            fxLayoutAlign="center center"
+            class="select-ampm"
+            [class.selected]="selectedAmPm === 'PM'"
+            (click)="selectAmPm('PM')"
+          >
+            PM
+          </div>
+        </div>
+        <div
+          class="number-pad-area"
+          gdColumns="repeat(6, 1fr)"
+          gdRows="repeat(2, 48px)"
+          gdGap="0px 4px"
+        >
+          <div
+            *ngFor="let hour of hours[selectedAmPm]"
+            fxLayoutAlign="center center"
+            class="number-pad"
+            [class.selected]="hour === selectedHour"
+            (click)="selectHour(hour)"
+          >
+            {{ hour }}
+          </div>
+        </div>
       </div>
     </div>
     <div class="minute-picker">
       <label class="unit-label mat-subheading-1">minute</label>
-      <div class="input-minute-area"></div>
+      <div gdColumns="24px auto 24px" class="input-minute-container">
+        <div class="left-arrow"><mat-icon>keyboard_arrow_left</mat-icon></div>
+        <div
+          class="input-minute-area"
+          fxLayout="row"
+          fxLayoutAlign="start center"
+        >
+          <div
+            *ngFor="let minute of minutes"
+            fxLayoutAlign="center center"
+            class="minute-pad"
+            [class.selected]="minute === selectedMunite"
+            [class.convinient]="minute % 5 === 0"
+            (click)="selectMinute(minute)"
+          >
+            {{ minute | number: '2.0' }}
+          </div>
+        </div>
+        <div class="left-arrow"><mat-icon>keyboard_arrow_right</mat-icon></div>
+      </div>
     </div>
   </div>
 

@@ -37,16 +37,77 @@ $left-and-right-padding: 16px;
 
 .unit-label {
   display: block;
-  padding: 16px 12px;
+  padding: {
+    top: 16px;
+    left: 12px;
+    bottom: 0px;
+    right: 12px;
+  }
 }
+
 
 .mat-subheading-1 {
   margin: 0;
 }
 
-.number-pad-area {
+.input-area {
   padding: 0 12px;
 }
+
+.select-ampm-area {
+  padding-bottom: 8px;
+}
+
+.select-ampm {
+  width: 72px;
+  height: 36px;
+
+  &.selected {
+    background-color: $primary;
+    border-radius: 18px;
+  }
+}
+
+.number-pad {
+  &.selected {
+    background-color: $primary;
+    border-radius: 50%;
+  }
+}
+
+.input-minute-container {
+  height: 52px;
+  align-items: center;
+}
+
+.input-minute-area {
+  overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+.minute-pad {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  font-size: 0.8em;
+  flex-shrink: 0;
+
+  &::-webkit-scrollbar {
+    display:none;
+  }
+
+  &.convinient {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    font-size: 1.2em;
+  }
+  
+  &.selected {
+    background-color: $primary;
+  }
+}
+
 
 .button-area {
   height: 52px;

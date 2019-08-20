@@ -6,24 +6,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./time-picker.component.scss'],
 })
 export class TimePickerComponent implements OnInit {
-  hour = 0;
-  munite = 0;
+  selectedHour = 0;
+  selectedMunite = 0;
 
   hours = {
     AM: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-    PM: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    PM: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
   };
 
-  selectedAmPm: 'AM' | 'PM';
+  minutes: number[] = Array.from(Array(60).keys());
+
+  selectedAmPm: 'AM' | 'PM' = 'AM';
 
   constructor() {}
 
-  ngOnInit() {
-    this.selectedAmPm = 'PM';
-  }
+  ngOnInit() {}
 
   clearTime() {
-    this.hour = 0;
-    this.munite = 0;
+    this.selectedHour = 0;
+    this.selectedMunite = 0;
+    this.selectedAmPm = 'AM';
+  }
+
+  selectAmPm(ampm) {
+    if (ampm !== this.selectedAmPm) {
+      this.selectedAmPm = ampm;
+    }
+  }
+
+  selectHour(hour: number) {
+    if (this.selectedHour !== hour) {
+      this.selectedHour = hour;
+    }
+  }
+
+  selectMinute(minute: number) {
+    this.selectedMunite = minute;
   }
 }
