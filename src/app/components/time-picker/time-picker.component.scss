@@ -45,7 +45,6 @@ $left-and-right-padding: 16px;
   }
 }
 
-
 .mat-subheading-1 {
   margin: 0;
 }
@@ -82,7 +81,7 @@ $left-and-right-padding: 16px;
 
 .input-minute-area {
   overflow: scroll;
-	-webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 
 .minute-pad {
@@ -93,7 +92,7 @@ $left-and-right-padding: 16px;
   flex-shrink: 0;
 
   &::-webkit-scrollbar {
-    display:none;
+    display: none;
   }
 
   &.convinient {
@@ -102,12 +101,23 @@ $left-and-right-padding: 16px;
     border-radius: 50%;
     font-size: 1.2em;
   }
-  
+
   &.selected {
     background-color: $primary;
   }
 }
 
+.slider-spacer {
+  width: 104px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.slider-spacer-right {
+  width: 107px;
+  height: 24px;
+  flex-shrink: 0;
+}
 
 .button-area {
   height: 52px;

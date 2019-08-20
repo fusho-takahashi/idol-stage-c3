@@ -77,13 +77,16 @@
     <div class="minute-picker">
       <label class="unit-label mat-subheading-1">minute</label>
       <div gdColumns="24px auto 24px" class="input-minute-container">
-        <div class="left-arrow"><mat-icon>keyboard_arrow_left</mat-icon></div>
+        <div fxLayoutAlign="center center">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </div>
         <div
           class="input-minute-area"
           fxLayout="row"
           fxLayoutAlign="start center"
           #minuteSlider
         >
+          <div class="slider-spacer"></div>
           <div
             *ngFor="let minute of minutes"
             fxLayoutAlign="center center"
@@ -94,8 +97,11 @@
           >
             {{ minute | number: '2.0' }}
           </div>
+          <div class="slider-spacer-right"></div>
         </div>
-        <div class="left-arrow"><mat-icon>keyboard_arrow_right</mat-icon></div>
+        <div fxLayoutAlign="center center">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
       </div>
     </div>
   </div>

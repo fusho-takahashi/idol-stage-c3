@@ -33,7 +33,7 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    const convinientPixel = Math.trunc(this.selectedMinute / 5) * 192 - 104;
+    const convinientPixel = Math.trunc(this.selectedMinute / 5) * 192;
     const remainderPixcel = (this.selectedMinute % 5) * 36;
     const Adjast = this.selectedMinute % 5 === 0 ? 0 : 4;
     this.minuteSlider.nativeElement.scrollTo(
