@@ -4,7 +4,11 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  Inject,
+  EventEmitter,
 } from '@angular/core';
+
+import { HOUR, MINUTE } from './time-picker.token';
 
 @Component({
   selector: 'app-time-picker',
@@ -28,11 +32,21 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
     HTMLElement
   >;
 
-  constructor() {}
+  pickerClose = new EventEmitter<{ hour: number; minute: number }>();
+
+  constructor(
+    @Inject(HOUR) private inputHour: number,
+    @Inject(MINUTE) private inputMinute: number,
+  ) {
+    this.selectedHour = inputHour;
+    this.selectedMinute = inputMinute;
+    this.selectedAmPm = inputHour < 12 ? 'AM' : 'PM';
+  }
 
   ngOnInit() {}
 
   ngAfterViewInit() {
+    // minute sliderをscroll
     const convinientPixel = Math.trunc(this.selectedMinute / 5) * 192;
     const remainderPixcel = (this.selectedMinute % 5) * 36;
     const Adjast = this.selectedMinute % 5 === 0 ? 0 : 4;
@@ -56,5 +70,16 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
 
   selectMinute(minute: number) {
     this.selectedMinute = minute;
+  }
+
+  cancel() {
+    this.pickerClose.emit({ hour: this.inputHour, minute: this.inputMinute });
+  }
+
+  success() {
+    this.pickerClose.emit({
+      hour: this.selectedHour,
+      minute: this.selectedMinute,
+    });
   }
 }
