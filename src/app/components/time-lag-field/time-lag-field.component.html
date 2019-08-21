@@ -3,7 +3,8 @@
   <div gdColumns="1fr 20px 1fr" gdGap="8px" class="time-fields">
     <app-time-field
       formLabel="入場時間"
-      [time]="{ hour: 20, minute: 0 }"
+      [time]="entranseTime"
+      (click)="clickTimeField('entrance')"
     ></app-time-field>
     <mat-icon gdGridAlign="center center">remove</mat-icon>
     <app-time-field

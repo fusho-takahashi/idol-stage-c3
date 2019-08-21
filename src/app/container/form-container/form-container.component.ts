@@ -8,9 +8,15 @@ import { TimePickerService } from '../../components/time-picker/time-picker.serv
   styleUrls: ['./form-container.component.scss'],
 })
 export class FormContainerComponent implements OnInit {
-  constructor(private timePicker: TimePickerService) {}
+  entranceTime: { hour: number; minute: number };
+  constructor(private timePicker: TimePickerService) {
+    this.timePicker.timePickFinish.pipe().subscribe((time) => {
+      this.entranceTime = time;
+    });
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
+  openTimePicker() {
     this.timePicker.open();
   }
 }
