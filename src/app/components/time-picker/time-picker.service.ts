@@ -51,11 +51,11 @@ export class TimePickerService {
   }
 
   private createInjector(hour: number, minute: number): PortalInjector {
-    const InjectorTokens = new WeakMap<any, any>([
+    const injectorTokens = new WeakMap<any, any>([
       [HOUR, hour],
       [MINUTE, minute],
     ]);
 
-    return new PortalInjector(this.injector, InjectorTokens);
+    return new PortalInjector(this.injector, injectorTokens);
   }
 }
