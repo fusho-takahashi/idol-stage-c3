@@ -22,6 +22,12 @@ $idol-stage-c3-theme: mat-light-theme(
 // that you are using.
 @include angular-material-theme($idol-stage-c3-theme);
 
+// angular material
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  transform: translate(8px, 2px);
+  width: 100%;
+}
+
 /* You can add global styles to this file, and also import other style files */
 html,
 body {

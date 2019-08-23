@@ -1,6 +1,12 @@
-<mat-icon class="icon">access_time</mat-icon>
-<div class="label" [class.mat-caption]="inputed">{{ formLabel }}</div>
-<div class="input mat-h2" *ngIf="inputed">
-  {{ time.hour | number: '2.0' }}<span class="time-divider">:</span
-  >{{ time.minute | number: '2.0' }}
-</div>
+<mat-form-field appearance="fill">
+  <mat-icon matPrefix>access_time</mat-icon>
+  <mat-label>{{ formLabel }}</mat-label>
+  <input
+    matInput
+    value="{{
+      inputed
+        ? (time.hour | number: '2.0') + ':' + (time.minute | number: '2.0')
+        : ''
+    }}"
+  />
+</mat-form-field>
