@@ -12,7 +12,6 @@ import { PortalModule } from '@angular/cdk/portal';
 import { MyOwnCustomMaterialModule } from './my-own-custom-material/my-own-custom-material.module';
 import { ResultContainerComponent } from './container/result-container/result-container.component';
 import { FormContainerComponent } from './container/form-container/form-container.component';
-import { TimeFieldComponent } from './components/time-field/time-field.component';
 import { TimeLagFieldComponent } from './components/time-lag-field/time-lag-field.component';
 import { DrinkCourseFieldComponent } from './components/drink-course-field/drink-course-field.component';
 import { TimePickerComponent } from './components/time-picker/time-picker.component';
@@ -22,7 +21,6 @@ import { TimePickerComponent } from './components/time-picker/time-picker.compon
     AppComponent,
     ResultContainerComponent,
     FormContainerComponent,
-    TimeFieldComponent,
     TimeLagFieldComponent,
     DrinkCourseFieldComponent,
     TimePickerComponent,
