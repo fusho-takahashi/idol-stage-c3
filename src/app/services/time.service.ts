@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { Time, DrinkCourses } from '../domain/models';
+import { Time, DrinkCourses, TimeInfo } from '../domain/models';
 
 @Injectable({
   providedIn: 'root',
@@ -25,11 +25,21 @@ export class TimeService {
 
   constructor() {}
 
-  updateEntranceTime(time: Time) {
+  updateTime(timeInfo: TimeInfo) {
+    switch (timeInfo.type) {
+      case 'entrance':
+        this.updateEntranceTime(timeInfo.time);
+        break;
+      case 'exit':
+        this.updateExitTime(timeInfo.time);
+    }
+  }
+
+  private updateEntranceTime(time: Time) {
     this._entranceTime$.next({ ...time });
   }
 
-  updateExitTime(time: Time) {
+  private updateExitTime(time: Time) {
     this._exitTime$.next({ ...time });
   }
 
