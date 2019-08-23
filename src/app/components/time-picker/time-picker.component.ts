@@ -49,9 +49,9 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
     // minute sliderをscroll
     const convinientPixel = Math.trunc(this.selectedMinute / 5) * 192;
     const remainderPixcel = (this.selectedMinute % 5) * 36;
-    const Adjast = this.selectedMinute % 5 === 0 ? 0 : 4;
+    const adjast = this.selectedMinute % 5 === 0 ? 0 : 4;
     this.minuteSlider.nativeElement.scrollTo(
-      convinientPixel + remainderPixcel + Adjast,
+      convinientPixel + remainderPixcel + adjast,
       0,
     );
   }
