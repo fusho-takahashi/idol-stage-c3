@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 
 import { HOUR, MINUTE } from './time-picker.token';
+import { TimeInfo } from '../../domain/models';
 
 @Component({
   selector: 'app-time-picker',
@@ -32,7 +33,7 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
     HTMLElement
   >;
 
-  pickerClose = new EventEmitter<{ hour: number; minute: number }>();
+  pickerClose = new EventEmitter<TimeInfo>();
 
   constructor(
     @Inject(HOUR) private inputHour: number,
@@ -73,13 +74,17 @@ export class TimePickerComponent implements OnInit, AfterViewInit {
   }
 
   cancel() {
-    this.pickerClose.emit({ hour: this.inputHour, minute: this.inputMinute });
+    // cancel event をemit する
+    this.pickerClose.emit({
+      type: 'entrance',
+      time: { hour: this.inputHour, minute: this.inputMinute },
+    });
   }
 
   success() {
     this.pickerClose.emit({
-      hour: this.selectedHour,
-      minute: this.selectedMinute,
+      type: 'entrance',
+      time: { hour: this.selectedHour, minute: this.selectedMinute },
     });
   }
 }

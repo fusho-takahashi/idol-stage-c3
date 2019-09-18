@@ -10,15 +10,16 @@ import { take } from 'rxjs/operators';
 
 import { TimePickerComponent } from './time-picker.component';
 import { HOUR, MINUTE } from './time-picker.token';
+import { TimeInfo } from 'src/app/domain/models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TimePickerService {
-  timePickFinish = new EventEmitter<{ hour: number; minute: number }>();
+  timePickFinish = new EventEmitter<TimeInfo>();
   constructor(private overlay: Overlay, private injector: Injector) {}
 
-  open(hour: number = 0, munite: number = 0) {
+  open(type: string, hour: number = 0, munite: number = 0) {
     const positionStrategy = this.overlay
       .position()
       .global()
@@ -28,6 +29,7 @@ export class TimePickerService {
     const config = new OverlayConfig({
       positionStrategy,
       hasBackdrop: true,
+      scrollStrategy: this.overlay.scrollStrategies.block(),
     });
 
     const overlayRef = this.overlay.create(config);
@@ -44,7 +46,7 @@ export class TimePickerService {
 
     const containerInstance: TimePickerComponent = containerRef.instance;
 
-    containerInstance.pickerClose.pipe(take(1)).subscribe((event) => {
+    containerInstance.pickerClose.pipe(take(1)).subscribe((event: TimeInfo) => {
       this.timePickFinish.emit(event);
       overlayRef.detach();
     });

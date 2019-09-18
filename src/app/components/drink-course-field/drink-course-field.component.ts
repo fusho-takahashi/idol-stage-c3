@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { DrinkCourses } from 'src/app/domain/models';
 
 @Component({
   selector: 'app-drink-course-field',
@@ -10,8 +11,14 @@ export class DrinkCourseFieldComponent implements OnInit {
     { id: 0, value: 'soft', label: 'ソフトドリンク' },
     { id: 1, value: 'alcohol', label: 'アルコール' },
   ];
-  selectedDrinkCourse: 'soft' | 'alcohol' = 'soft';
+
+  @Input() selectedValue: DrinkCourses;
+  @Output() selectedValueChange = new EventEmitter<DrinkCourses>();
+
+  selectedDrinkCourse: DrinkCourses;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.selectedDrinkCourse = this.selectedValue;
+  }
 }

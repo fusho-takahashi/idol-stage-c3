@@ -1,15 +1,16 @@
 <div fxLayout="column" fxLayoutGap="8px">
   <label class="mat-caption">入退場時間</label>
   <div gdColumns="1fr 20px 1fr" gdGap="8px" class="time-fields">
-    <app-time-field
-      formLabel="入場時間"
-      [time]="entranseTime"
-      (click)="clickTimeField('entrance')"
-    ></app-time-field>
+    <mat-form-field appearance="fill" (click)="clickTimeField('entrance')">
+      <mat-icon matPrefix>access_time</mat-icon>
+      <mat-label>入場時間</mat-label>
+      <input matInput value="{{ entranseTime }}" />
+    </mat-form-field>
     <mat-icon gdGridAlign="center center">remove</mat-icon>
-    <app-time-field
-      formLabel="退場時間"
-      [time]="{ hour: 21, minute: 0 }"
-    ></app-time-field>
+    <mat-form-field appearance="fill" (click)="clickTimeField('exit')">
+      <mat-icon matPrefix>access_time</mat-icon>
+      <mat-label>退場時間</mat-label>
+      <input matInput value="{{ exitTime }}" />
+    </mat-form-field>
   </div>
 </div>

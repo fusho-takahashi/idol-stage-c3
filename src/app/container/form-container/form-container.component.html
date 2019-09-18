@@ -1,7 +1,11 @@
 <div fxLayout="column" fxLayoutGap="24px">
   <app-time-lag-field
-    [entranseTime]="entranceTime"
-    (entranceTimeInput)="openTimePicker()"
+    [entranseTime]="formatTime(entranceTime$ | async)"
+    [exitTime]="formatTime(exitTime$ | async)"
+    (timeInput)="openTimePicker($event)"
   ></app-time-lag-field>
-  <app-drink-course-field></app-drink-course-field>
+  <app-drink-course-field
+    [selectedValue]="drinkCourse$ | async"
+    (selectedValueChange)="changeDrinkCourse($event)"
+  ></app-drink-course-field>
 </div>
